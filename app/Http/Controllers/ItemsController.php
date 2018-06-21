@@ -26,7 +26,7 @@ use App\Item;
             ]);
 
             // Creating "Item" instance to make it easy to handle.（not saving）
-            foreach ($rws_response->getData()['Items'] as $rws_item) {
+            foreach ($rws_response->getData()['Items']??array() as $rws_item) {
                 $item = new Item();
                 $item->code = $rws_item['Item']['itemCode'];
                 $item->name = $rws_item['Item']['itemName'];
